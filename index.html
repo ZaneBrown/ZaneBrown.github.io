@@ -64,5 +64,33 @@
 	<input type="file" onchange="handleImageUpload()" id="upload" multiple />
 	<img id="display-image" src="#" alt="your image" />
 
+
+
+
+
+	<form class ="form" id = "myForm">
+		<input type="file" id="inpFile"><br>
+		<button type="submit">Upload File</button>
+	</form>
+
+	<script>
+		const myForm = document.getElementById("myForm");
+		const inpFile = document.getElementById("inpFile");
+
+		myForm.addEventListener("submit", e => {
+			e.preventDefault();
+
+			const endpoint = "upload.php";
+			const formData = new FormData();
+
+			console.log(inpFile.files);
+
+			formData.append("inpFile", inpFile.files[0]);
+		});
+
+	</script>
+
+
+
 </body>
 </html>
